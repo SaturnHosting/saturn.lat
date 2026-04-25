@@ -409,3 +409,20 @@ body.dark-mode .theme-switch {
         grid-template-columns: 1fr;
     }
 }
+
+        .plan {
+            position: relative;
+        }
+
+        .plan-badge {
+            display: inline-block;
+            font-family: "RoboMono", monospace;
+            font-size: 10px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            margin-bottom: 14px;
+            background-color: transparent;
+            color: #4ade80;
+            border: 1px solid #4ade80;
+        }
