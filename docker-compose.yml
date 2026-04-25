@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  web:
+    image: nginx:alpine
+    container_name: saturn_web
+    ports:
+      - "8008:80"
+    volumes:
+      - ./:/usr/share/nginx/html:ro
+    restart: unless-stopped
