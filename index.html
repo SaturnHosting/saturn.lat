@@ -3,20 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="og:site_name" content="Saturn" />
     <meta name="og:type" content="object" />
     <meta name="og:image" content="https://saturn.lat/assets/img/saturn-white.png" />
     <meta name="og:title" content="Saturn" />
     <meta name="og:url" content="https://saturn.lat/" />
-    <meta name="theme-color" content="#FFFFFF" />
+    <meta name="theme-color" content="#0a0a0a" />
     <meta name="og:description" content="Anarchy-aimed hosting service provider." />
     <link rel="shortcut icon" href="assets/img/saturn-white.png">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <title>Saturn Hosting</title>
+    <title>Saturn</title>
 </head>
-<body>
-    <pre class="ascii-art">
+<body class="dark-mode">
+
+    <nav class="navbar">
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#services">SERVICES</a>
+        <a href="https://hq.saturn.lat/">HQ</a>
+    </nav>
+
+    <!-- LANDING -->
+    <section id="home" class="section-home">
+        <div class="home-inner">
+            <pre class="ascii-art">
                                          _.oo.
                      _.u[[/;:,.         .odMMMMMM'
                   .o888UU[[[/;:-.  .o@P^    MMM^
@@ -32,29 +42,143 @@
      dMMMMMMM@^`       `^^^^
     YMMMUP^
      ^^
-    </pre>
+            </pre>
+            <br>
+        </div>
+        <div class="scroll-hint">scroll ↓</div>
+    </section>
 
-    <div class="navbar">
-        <a href="index.html">HOME</a>
-        <a href="about.html">ABOUT</a>
-        <a href="services.html">SERVICES</a>
-        <a href="https://hq.saturn.lat/">HQ</a>
+    <!-- WAVE 1 -->
+    <div class="wave-divider wave-1">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--section-2)"/>
+        </svg>
     </div>
 
-    <div class="rbottom">
+    <!-- ABOUT -->
+    <section id="about" class="section-content bg-2">
+        <div class="content-inner">
+            <div class="section-eyebrow">// ABOUT</div>
+            <h1>Saturn</h1>
+            <div class="about-body">
+                <p><b>Saturn</b> — it's just a hobby. We are not a company and we only provide services to anarchy communities.</p>
+                <p><b>Background</b> — Saturn started in 2022 as a private, non-commercial hosting solution built for fun and community.</p>
+                <p><b>Related Services</b> — Saturn Services cover *.saturn.lat.</p>
+            </div>
+            <div class="stat-row">
+                <div class="stat">
+                    <span class="stat-num">2022</span>
+                    <span class="stat-label">Founded</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-num">*.saturn.lat</span>
+                    <span class="stat-label">Coverage</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-num">anarchy</span>
+                    <span class="stat-label">Audience</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WAVE 2 -->
+    <div class="wave-divider wave-2">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 C480,0 960,80 1440,40 L1440,80 L0,80 Z" fill="var(--section-1)"/>
+        </svg>
+    </div>
+
+    <!-- SERVICES -->
+    <section id="services" class="section-content bg-1">
+        <div class="content-inner">
+            <div class="section-eyebrow">// PLANS</div>
+            <h1>Saturn Hosting</h1>
+            <p class="services-sub">Select your plan.</p>
+            <div class="plans-grid">
+                <div class="plan">
+                    <div class="plan-head">
+                        <span class="plan-price">Free</span>
+                    </div>
+                    <p class="plan-tagline">Great for simple Discord bots &amp; lightweight tasks.</p>
+                    <ul class="plan-specs">
+                        <li>1 vCore</li>
+                        <li>5GB HDD</li>
+                        <li>250MB RAM</li>
+                        <li>No unique IP</li>
+                    </ul>
+                </div>
+                <div class="plan plan-featured">
+                    <div class="plan-head">
+                        <span class="plan-price">€2<span class="plan-period">/mo</span></span>
+                        <span class="plan-badge">★ Recommended</span>
+                    </div>
+                    <p class="plan-tagline">Perfect for adbots &amp; tools that need a unique IP.</p>
+                    <ul class="plan-specs">
+                        <li>1 vCore</li>
+                        <li>30GB SSD</li>
+                        <li>2GB RAM</li>
+                        <li>Unique IP</li>
+                    </ul>
+                </div>
+                <div class="plan plan-featured">
+                    <div class="plan-head">
+                        <span class="plan-price">€6<span class="plan-period">/mo</span></span>
+                    </div>
+                    <p class="plan-tagline">Ideal for Minecraft servers &amp; heavier workloads.</p>
+                    <ul class="plan-specs">
+                        <li>2 vCores</li>
+                        <li>120GB SSD</li>
+                        <li>6GB RAM</li>
+                        <li>Open port</li>
+                    </ul>
+                </div>
+                <div class="plan plan-featured">
+                    <div class="plan-head">
+                        <span class="plan-price">Custom</span>
+                    </div>
+                    <p class="plan-tagline">Need something specific? We'll build it with you.</p>
+                    <ul class="plan-specs">
+                        <li>Create a custom service together with us.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WAVE 3 -->
+    <div class="wave-divider wave-3">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,20 C360,80 1080,0 1440,60 L1440,80 L0,80 Z" fill="var(--section-2)"/>
+        </svg>
+    </div>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section-content bg-2 section-contact">
+        <div class="content-inner">
+            <div class="section-eyebrow">// CONTACT</div>
+            <h1>Get in touch.</h1>
+            <p class="services-sub">Reach out via our Discord below:</p>
+            <div class="contact-links">
+                <a href="https://discord.gg/saturn6b6t" class="contact-link">
+                    <span class="contact-value mono-inline">discord.gg/saturn6b6t</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <span>© 2022 – 2026 SATURN — ALL RIGHTS RESERVED</span>
         <div class="switches">
-        <div class="font-switch">
-            <span id="fontToggleText">SERIF</span>
+            <div class="font-switch"><span id="fontToggleText">SERIF</span></div>
+            <span>|</span>
+            <div class="theme-switch"><span id="themeToggleText">LIGHT</span></div>
         </div>
-        <p>|</p>
-        <div class="theme-switch">
-            <span id="themeToggleText">DARK</span>
-        </div>
-        </div>
-        <p>© 2022 - 2026 SATURN</p>
-        <p>ALL RIGHTS RESERVED</p>
-    </div>
+    </footer>
+
     <script src="assets/js/darkmode.js"></script>
     <script src="assets/js/font.js"></script>
+    <script src="assets/js/particles.js"></script>
 </body>
 </html>
