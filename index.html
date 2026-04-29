@@ -18,14 +18,22 @@
 
 <nav class="navbar">
     <div class="nav-brand">SATURN HOSTING</div>
-    
-    <div style="display: flex; gap: 50px;">
+
+    <button class="burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="nav-links" id="navLinks">
         <a href="#home">HOME</a>
         <a href="#about">ABOUT</a>
         <a href="#services">SERVICES</a>
         <a href="https://hq.saturn.lat/">HQ</a>
     </div>
 </nav>
+
+<div class="nav-overlay" id="navOverlay"></div>
 
     <section id="home" class="section-home">
         <div class="home-inner">
@@ -162,7 +170,7 @@
     </section>
 
     <footer class="site-footer">
-        <span>© 2022 - 2026 SATURN — ALL RIGHTS RESERVED</span>
+        <span>© 2022 - 2026 SATURN</span>
         <div class="switches">
             <div class="font-switch"><span id="fontToggleText">SERIF</span></div>
             <span>|</span>
@@ -170,8 +178,28 @@
         </div>
     </footer>
 
+
+    <script>
+    const burger = document.getElementById('burgerBtn');
+    const navLinks = document.getElementById('navLinks');
+    const overlay = document.getElementById('navOverlay');
+
+    function toggleMenu(open) {
+        burger.classList.toggle('open', open);
+        navLinks.classList.toggle('open', open);
+        overlay.classList.toggle('open', open);
+        burger.setAttribute('aria-expanded', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    burger.addEventListener('click', () => toggleMenu(!burger.classList.contains('open')));
+    overlay.addEventListener('click', () => toggleMenu(false));
+
+    navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => toggleMenu(false));
+    });
+    </script>
     <script src="assets/js/darkmode.js"></script>
     <script src="assets/js/font.js"></script>
-    <script src="assets/js/particles.js"></script>
 </body>
 </html>
