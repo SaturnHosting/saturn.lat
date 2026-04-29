@@ -58,16 +58,26 @@ body {
 
 
 .navbar {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
+
     display: flex;
-    justify-content: flex-end;
-    background-color: transparent;
-    gap: 60px;
+    justify-content: space-between; 
+    align-items: center;
+
     padding: 28px 50px;
-    z-index: 100;
+    z-index: 1000;
+    background-color: transparent;
+}
+
+.nav-brand {
+    font-family: "RoboMono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    opacity: 0.7;
+    text-transform: uppercase;
 }
 
 .navbar a {
