@@ -70,6 +70,7 @@ body {
     right: 0;
     display: flex;
     justify-content: flex-end;
+    background-color: transparent;
     gap: 60px;
     padding: 28px 50px;
     z-index: 100;
@@ -79,6 +80,7 @@ body {
     position: relative;
     font-size: 14px;
     letter-spacing: 0.15em;
+    background-color: transparent;
     text-decoration: none;
     color: var(--text-color);
     opacity: 0.7;
