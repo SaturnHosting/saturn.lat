@@ -426,3 +426,14 @@ body.dark-mode .theme-switch {
             color: #4ade80;
             border: 1px solid #4ade80;
         }
+
+.plan-tagline {
+    font-size: 13px;
+    opacity: 0.6;
+    margin: 14px 0 14px 0;
+    font-style: italic;
+}
+
+.plan-head {
+    margin-bottom: 4px; 
+}
