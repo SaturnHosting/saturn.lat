@@ -120,8 +120,6 @@ body {
     font-family: "RoboMono", monospace;
     font-size: 0.85em;
     padding: 2px 8px;
-    border: 1px dashed var(--border);
-    border-radius: 3px;
     color: var(--text-color);
 }
 
