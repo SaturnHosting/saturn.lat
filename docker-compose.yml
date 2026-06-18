@@ -10,7 +10,7 @@ services:
       - ./:/usr/share/nginx/html:ro
     restart: unless-stopped
 
-tor:
+  tor:
     build: ./tor
     container_name: saturn_tor
     depends_on:
