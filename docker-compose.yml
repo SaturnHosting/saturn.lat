@@ -9,3 +9,16 @@ services:
     volumes:
       - ./:/usr/share/nginx/html:ro
     restart: unless-stopped
+
+tor:
+    build: ./tor
+    container_name: saturn_tor
+    depends_on:
+      - web
+    volumes:
+      - ./tor/hs:/hs:ro
+      - tor_data:/var/lib/tor
+    restart: unless-stopped
+
+volumes:
+  tor_data:
