@@ -198,3 +198,9 @@ code{padding:1px 6px;border:1px solid var(--line);background:var(--bg);font-size
 .faq-item p{margin:0;max-width:42em;color:var(--muted);font-size:18px}
 .guide-section+.cta{margin-top:48px}
 @media(max-width:600px){.guide-step{flex-direction:column}}
+.union-info p+p{margin-top:10px}
+.history-doc{margin-bottom:48px}
+.history-doc h2{margin:0 0 8px;font-size:30px;line-height:1.2}
+.history-doc p{max-width:44em;margin:0 0 12px;color:var(--muted)}
+.doc-links{display:flex;flex-wrap:wrap;gap:8px 24px;margin:0 0 14px;font-size:17px;font-weight:700}
+.source-note{max-width:44em;margin:0 0 40px;color:var(--muted);font-size:16px}
