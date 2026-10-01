@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Republic of Saturn</title>
-    <meta name="description" content="Welcome to the Republic of Saturn, a representitive democracy on a anarchy server.">
+    <title>News - Republic of Saturn</title>
+    <meta name="description" content="Latest news and announcements from the Republic of Saturn.">
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
@@ -30,7 +30,7 @@
             <span>Menu</span>
             <button class="slide-menu__close" id="menuClose" aria-label="Close menu">&times;</button>
         </div>
-        <details>
+        <details open>
             <summary>Government</summary>
             <ul>
                 <li><a href="/">Home</a></li>
@@ -98,88 +98,50 @@
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="hero">
-        <h1>Welcome to Saturn!</h1>
-        <p class="hero__subtitle">The Republic of Saturn welcomes you to anarchy.</p>
-        <div class="hero__actions">
-            <a href="/guide/" class="btn">Become a Citizen</a>
-            <a href="/union/" target="_blank" rel="noopener" class="btn btn--tertiary">Explore the Republic</a>
-        </div>
-        <a href="#main-content" class="scroll-hint">
-            <span>Scroll to explore</span>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-        </a>
-    </section>
-
     <div class="container">
-        <main id="main-content" class="main">
+        <main id="main-content" class="main main--page">
 
-            <!-- Recent news -->
-            <div class="news-ticker">
-                <h3>📰 Recent News</h3>
-                <div class="news-ticker__item">
-                    <a href="/news/2026-october-senate/">2026/10 Senate takes office</a>
-                    <span class="news-ticker__date">- October 2026</span>
-                </div>
-                <div class="news-ticker__item">
-                    <a href="/news/2026-october-elections/">2026/10 Senate Elections</a>
-                    <span class="news-ticker__date">- September 2026</span>
-                </div>
-                <div class="news-ticker__item">
-                    <a href="/news/ratification-of-the-constitution/">Ratification of the Constitution</a>
-                    <span class="news-ticker__date">- September 2026</span>
-                </div>
+            <div class="page-header">
+                <h1>Republic News</h1>
+                <p>Legislative updates, announcements, and official communications.</p>
             </div>
 
-            <!-- Services grid -->
-            <section class="services">
-                <h2 class="section-title">Discover Saturn</h2>
-                <p class="section-intro">Explore the diverse facets of the Republic.</p>
+            <div class="news-list">
 
-                <div class="services-grid">
-                    <a href="/union/" class="service-card">
-                        <div class="service-card__icon">🏛️</div>
-                        <h3>The Republic</h3>
-                        <p>From the infinite homes of Hyperloop to the guilds of Saturn Hyperion. Explore our diverse states and benefits.</p>
-                        <span class="service-card__link">Explore States →</span>
-                    </a>
-                    <a href="/government/officials/" class="service-card">
-                        <div class="service-card__icon">⚖️</div>
-                        <h3>Government</h3>
-                        <p>Saturn is a representitive democracy. Our democratically elected Senate meets regularly, led by President Maximum4923 with transparent governance.</p>
-                        <span class="service-card__link">View Officials →</span>
-                    </a>
-                    <a href="/laws/" class="service-card">
-                        <div class="service-card__icon">📜</div>
-                        <h3>Legislation</h3>
-                        <p>Governed by clear laws and a written constitution ensuring due process, accountability, and rights for all citizens.</p>
-                        <span class="service-card__link">View Laws →</span>
-                    </a>
-                    <a href="https://discord.gg/mj6fVxfEE" target="_blank" rel="noopener" class="service-card">
-                        <div class="service-card__icon">🏗️</div>
-                        <h3>Projects</h3>
-                        <p>Massive bot networks and State of the Art clan systems. Saturn continues to grow and modernize.</p>
-                        <span class="service-card__link">Find Jobs →</span>
-                    </a>
-                    <a href="/guide/" class="service-card">
-                        <div class="service-card__icon">👋</div>
-                        <h3>Join Us</h3>
-                        <p>Whether you're a builder, programmer, PvPer, base hunter, or lawmaker - Saturn has a role for you. Jobs, resources, and events await.</p>
-                        <span class="service-card__link">Get Started →</span>
-                    </a>
-                </div>
-            </section>
+                <a class="news-item" href="/news/2026-october-senate/">
+                    <div class="news-item__icon" aria-hidden="true">📰</div>
+                    <div class="news-item__body">
+                        <div class="news-item__title">2026/10 Senate takes office</div>
+                        <div class="news-item__excerpt">Sponsored by Fulgur</div>
+                        <div class="news-item__date">1 October 2026</div>
+                    </div>
+                </a>
 
-            <!-- Call to action -->
-            <section class="cta">
-                <h2 class="section-title">Ready to Join Us?</h2>
-                <p class="section-intro">Whether you're a new player looking for a home or an experienced player seeking new opportunities, Saturn has a place for you.</p>
-                <div class="hero__actions">
-                    <a href="/guide/" class="btn">Read the Guide</a>
-                    <a href="https://discord.gg/mj6fVxfEE" target="_blank" rel="noopener" class="btn btn--secondary">Join Our Discord</a>
-                </div>
-            </section>
+                <a class="news-item" href="/news/2026-october-elections/">
+                    <div class="news-item__icon" aria-hidden="true">🗳️</div>
+                    <div class="news-item__body">
+                        <div class="news-item__title">2026/10 Senate Elections</div>
+                        <div class="news-item__excerpt">Sponsored by Fulgur</div>
+                        <div class="news-item__date">29 September 2026</div>
+                    </div>
+                </a>
+
+                <a class="news-item" href="/news/ratification-of-the-constitution/">
+                    <div class="news-item__icon" aria-hidden="true">📜</div>
+                    <div class="news-item__body">
+                        <div class="news-item__title">Ratification of the Constitution</div>
+                        <div class="news-item__excerpt">Sponsored by Saturn Empire</div>
+                        <div class="news-item__date">16 September 2026</div>
+                        <div class="news-item__changes">
+                            <span class="news-item__changes-label">Legislation:</span>
+                            <strong class="tag tag--enacted">Enacted</strong>
+                            <!-- <strong class="tag tag--amended">Amended</strong> -->
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
         </main>
     </div>
 

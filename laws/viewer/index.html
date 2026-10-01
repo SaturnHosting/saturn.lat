@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document Viewer - Republic of Saturn</title>
+    <meta name="description" content="View laws, treaties and other official documents of the Republic of Saturn.">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- Header bar with logo -->
+    <header class="header" role="banner">
+        <div class="header__container">
+            <a href="/" class="header__logo">
+                <img src="/assets/img/saturn-bg.png" alt="" width="32" height="32">
+                <span>Saturn</span>
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="slideMenu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Slide-out menu (narrow screens) -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <nav class="slide-menu" id="slideMenu" aria-label="Mobile navigation">
+        <div class="slide-menu__header">
+            <span>Menu</span>
+            <button class="slide-menu__close" id="menuClose" aria-label="Close menu">&times;</button>
+        </div>
+        <details open>
+            <summary>Government</summary>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/government/officials/">Officials</a></li>
+                <li><a href="/news/">News</a></li>
+                <li><a href="/laws/">Legislation</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary>Explore Saturn</summary>
+            <ul>
+                <li><a href="/union/">The Republic</a></li>
+                <li><a href="/history/">History</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary>Join Us</summary>
+            <ul>
+                <li><a href="/guide/">New Player Guide</a></li>
+                <li><a href="https://discord.gg/mj6fVxfEE" target="_blank" rel="noopener">Discord</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary>Utilities</summary>
+            <ul>
+                <li><a href="https://6b6tdb.saturn.lat/">6b6tDB</a></li>
+            </ul>
+        </details>
+    </nav>
+
+    <!-- Navigation bar (wide screens) -->
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="container">
+            <ul class="navbar__list">
+                <li class="navbar__item">
+                    <button class="navbar__link" aria-haspopup="true">Government</button>
+                    <ul class="navbar__dropdown">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/government/officials/">Officials</a></li>
+                        <li><a href="/news/">News</a></li>
+                        <li><a href="/laws/">Legislation</a></li>
+                    </ul>
+                </li>
+                <li class="navbar__item">
+                    <button class="navbar__link" aria-haspopup="true">Explore Saturn</button>
+                    <ul class="navbar__dropdown">
+                        <li><a href="/union/">The Republic</a></li>
+                        <li><a href="/history/">History</a></li>
+                    </ul>
+                </li>
+                <li class="navbar__item">
+                    <button class="navbar__link" aria-haspopup="true">Join Us</button>
+                    <ul class="navbar__dropdown">
+                        <li><a href="/guide/">New Player Guide</a></li>
+                        <li><a href="https://discord.gg/mj6fVxfEE" target="_blank" rel="noopener">Discord</a></li>
+                    </ul>
+                </li>
+                <li class="navbar__item">
+                    <button class="navbar__link" aria-haspopup="true">Utilities</button>
+                    <ul class="navbar__dropdown">
+                        <li><a href="https://6b6tdb.saturn.lat/">6b6tDB</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <main id="main-content" class="main main--page">
+
+            <div class="page-header">
+                <h1>Document Viewer</h1>
+                <p><a href="/laws/">← Back to Republic Laws</a></p>
+            </div>
+
+            <div id="viewer-container" class="viewer-container">
+                <div id="loading-message" class="viewer-message">Loading document...</div>
+                <div id="error-message" class="viewer-error" role="alert" style="display: none;"></div>
+
+                <!-- Viewer toggle controls -->
+                <div id="viewer-controls" class="viewer-controls" style="display: none;">
+                    <button class="viewer-toggle active" data-viewer="google" type="button">Google Viewer</button>
+                    <button class="viewer-toggle" data-viewer="office" type="button">Office Viewer</button>
+                </div>
+
+                <!-- Local renderer -->
+                <div id="docx-container" style="display: none;"></div>
+
+                <!-- Online viewer -->
+                <iframe id="doc-iframe" title="Document Viewer" width="100%" height="800" frameborder="0" allowfullscreen style="display: none;"></iframe>
+
+                <div id="actions" class="viewer-actions" style="display: none;">
+                    <a id="download-link" href="#" class="btn" target="_blank" rel="noopener">Download Document</a>
+                    <a id="download-pdf-link" href="#" class="btn btn--secondary" target="_blank" rel="noopener" style="display: none;">Download PDF</a>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // Slide-out menu open/close
+        (function () {
+            var toggle = document.getElementById('menuToggle');
+            var closeBtn = document.getElementById('menuClose');
+            var menu = document.getElementById('slideMenu');
+            var overlay = document.getElementById('menuOverlay');
+
+            function open() {
+                menu.classList.add('is-open');
+                overlay.classList.add('is-visible');
+                toggle.setAttribute('aria-expanded', 'true');
+            }
+            function close() {
+                menu.classList.remove('is-open');
+                overlay.classList.remove('is-visible');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+
+            toggle.addEventListener('click', open);
+            closeBtn.addEventListener('click', close);
+            overlay.addEventListener('click', close);
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') close();
+            });
+        })();
+    </script>
+
+    <script>
+        // Document viewer
+        // Usage: /laws/viewer/?file=/documents/Constitution-of-Saturn.docx
+        //        optional: &viewer=office   (default is google)
+        (function () {
+            var docxPreview = null;
+            var jszipLoaded = false;
+
+            function loadScript(src) {
+                return new Promise(function (resolve, reject) {
+                    var s = document.createElement('script');
+                    s.src = src;
+                    s.onload = resolve;
+                    s.onerror = function () { reject(new Error('Failed to load ' + src)); };
+                    document.head.appendChild(s);
+                });
+            }
+
+            // docx-preview needs JSZip; both are loaded on demand, only when rendering locally
+            async function loadDocxPreview() {
+                if (docxPreview) return docxPreview;
+                if (!jszipLoaded) {
+                    await loadScript('https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js');
+                    if (!window.JSZip) throw new Error('JSZip loaded but not found on window');
+                    jszipLoaded = true;
+                }
+                await loadScript('https://cdn.jsdelivr.net/npm/docx-preview@0.3.7/dist/docx-preview.min.js');
+                if (!window.docx || !window.docx.renderAsync) throw new Error('docx-preview loaded but renderAsync not found');
+                docxPreview = window.docx;
+                return docxPreview;
+            }
+
+            function toAbsolute(path) {
+                if (path.indexOf('/') === 0) return window.location.origin + path;
+                if (path.indexOf('http') === 0) return path;
+                return window.location.origin + '/' + path;
+            }
+
+            async function init() {
+                var params = new URLSearchParams(window.location.search);
+                var file = params.get('file');
+                var currentViewer = params.get('viewer') || 'google';
+
+                var iframe = document.getElementById('doc-iframe');
+                var docxContainer = document.getElementById('docx-container');
+                var loading = document.getElementById('loading-message');
+                var errorBox = document.getElementById('error-message');
+                var actions = document.getElementById('actions');
+                var downloadLink = document.getElementById('download-link');
+                var downloadPdfLink = document.getElementById('download-pdf-link');
+                var controls = document.getElementById('viewer-controls');
+                var toggles = document.querySelectorAll('.viewer-toggle');
+
+                var isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+                if (!file) {
+                    loading.style.display = 'none';
+                    errorBox.textContent = 'No file specified. Add a "file" parameter to the address, for example ?file=/documents/Constitution-of-Saturn.docx';
+                    errorBox.style.display = 'block';
+                    return;
+                }
+
+                var fileUrl = toAbsolute(file);
+                downloadLink.href = fileUrl;
+                actions.style.display = 'block';
+
+                // If a PDF copy sits next to a .doc/.docx, offer it as a second download
+                if (/\.(docx|doc)$/i.test(file)) {
+                    var pdfUrl = toAbsolute(file.replace(/\.(docx|doc)$/i, '.pdf'));
+                    fetch(pdfUrl, { method: 'HEAD' }).then(function (res) {
+                        if (res.ok) {
+                            downloadPdfLink.href = pdfUrl;
+                            downloadPdfLink.style.display = '';
+                        }
+                    }).catch(function () { /* no PDF copy, ignore */ });
+                }
+
+                function showInIframe(viewer) {
+                    var encoded = encodeURIComponent(fileUrl);
+                    var src = viewer === 'office'
+                        ? 'https://view.officeapps.live.com/op/embed.aspx?src=' + encoded
+                        : 'https://docs.google.com/gview?url=' + encoded + '&embedded=true';
+
+                    loading.style.display = 'block';
+                    iframe.style.display = 'none';
+                    iframe.src = src;
+                    iframe.onload = function () {
+                        loading.style.display = 'none';
+                        iframe.style.display = 'block';
+                    };
+                    // Fallback in case the viewer never fires a load event
+                    setTimeout(function () {
+                        loading.style.display = 'none';
+                        iframe.style.display = 'block';
+                    }, 2000);
+                }
+
+                function setupToggles() {
+                    toggles.forEach(function (btn) {
+                        btn.classList.toggle('active', btn.getAttribute('data-viewer') === currentViewer);
+                        btn.addEventListener('click', function () {
+                            var next = btn.getAttribute('data-viewer');
+                            if (!next || next === currentViewer) return;
+                            currentViewer = next;
+                            toggles.forEach(function (b) { b.classList.remove('active'); });
+                            btn.classList.add('active');
+                            showInIframe(next);
+                        });
+                    });
+                }
+
+                // Local development: render .docx files directly in the page
+                if (isLocal && /\.docx$/i.test(file)) {
+                    try {
+                        var docx = await loadDocxPreview();
+                        var res = await fetch(fileUrl);
+                        if (!res.ok) throw new Error('Failed to fetch document: ' + res.status);
+                        var blob = await res.blob();
+                        await docx.renderAsync(blob, docxContainer, undefined, {
+                            className: 'docx-preview',
+                            inWrapper: true,
+                            ignoreWidth: false,
+                            ignoreHeight: false,
+                            ignoreFonts: false,
+                            breakPages: true,
+                            useBase64URL: true,
+                            renderHeaders: true,
+                            renderFooters: true,
+                            renderFootnotes: true,
+                            renderEndnotes: true
+                        });
+                        loading.style.display = 'none';
+                        docxContainer.style.display = 'block';
+                    } catch (e) {
+                        console.error('Error rendering docx:', e);
+                        loading.style.display = 'none';
+                        errorBox.textContent = 'Error loading document: ' + (e instanceof Error ? e.message : 'Unknown error') + '. Try downloading the file instead.';
+                        errorBox.style.display = 'block';
+                    }
+                } else {
+                    controls.style.display = 'flex';
+                    setupToggles();
+                    showInIframe(currentViewer);
+                }
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+        })();
+    </script>
+</body>
+</html>
